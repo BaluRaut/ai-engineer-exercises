@@ -1,0 +1,22 @@
+{
+  "name": "ai-engineer-exercises",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hands-on exercises for becoming an AI engineer with the Claude API, in TypeScript.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "ex": "tsx src/run.ts",
+    "list": "tsx src/run.ts --list",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "zod": "^4.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.0"
+  }
+}

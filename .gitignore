@@ -1,0 +1,5 @@
+node_modules/
+results/
+data/memory.json
+.env
+.DS_Store

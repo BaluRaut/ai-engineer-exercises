@@ -1,0 +1,11 @@
+[
+  { "id": "soy-seed-rate", "question": "What seed rate should I use for soybean per hectare?", "expect_any": ["65", "75"] },
+  { "id": "soy-window", "question": "By which date should soybean sowing be finished in Vidarbha?", "expect_any": ["7 July", "July 7", "early July", "15 July", "July 15"] },
+  { "id": "cotton-spacing", "question": "What spacing is recommended for rain-fed Bt cotton on medium soil?", "expect_any": ["90", "60"] },
+  { "id": "onion-nursery", "question": "When is the kharif onion nursery sown?", "expect_any": ["May", "June"] },
+  { "id": "tur-seed-rate", "question": "How much tur seed per hectare for a sole crop?", "expect_any": ["12", "15"] },
+  { "id": "bajra-depth", "question": "How deep should bajra be sown?", "expect_any": ["2", "3"] },
+  { "id": "soy-yellow-mosaic", "question": "What spreads yellow mosaic virus in soybean?", "expect_any": ["whitefly", "white fly"] },
+  { "id": "late-sowing", "question": "It is 20 July and I have not sown yet. Which crop should I choose instead of soybean?", "expect_any": ["bajra", "tur", "short-duration", "short duration"] },
+  { "id": "out-of-scope", "question": "How do I repair my motorcycle clutch?", "expect_any": ["not", "cannot", "can't", "only", "farm", "crop", "outside"] }
+]
