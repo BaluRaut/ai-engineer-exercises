@@ -8,6 +8,37 @@ Companion pages, in English and Marathi:
 - [AI Dictionary for Beginners](https://claude.ai/artifact/JfQwvcTjXvcqgrfTvQQSmv), the words used here, each with before, what, how, why, and an analogy
 - [Agents for Beginners](https://claude.ai/artifact/4d2QHxQyBG3QGnMwN4pP2N), LLMs, agentic AI, agents, and multi-agents explained with diagrams
 
+## What you will be able to do
+
+Concretely, after the thirteen. Not "understand" anything — these are things you either can do or cannot.
+
+**Build.** Take a question someone asks in words and turn it into a working application: a system prompt that holds under pressure, typed output your code can rely on, retrieval over your own documents with citations, tools the model can call, and an agent loop that decides its own steps. From an empty file, without copying.
+
+**Judge.** Look at an LLM feature someone else built and say what it will cost per answer, where it will break, and which of the thirteen pieces it is missing. This is the part that separates someone who has followed a tutorial from someone you would put on a project.
+
+**Ship.** Cut the bill with caching and measure that it worked. Keep the app on topic. Prove with an eval set that a change helped rather than hoping. Save what a user told you last week and use it this week.
+
+### Test yourself
+
+If you can answer these without looking, you have it. Each one is taught by an exercise and each has caught people out.
+
+1. Why does turn ten of a conversation cost more than turn one, and what do you do about it?
+2. Your prompt cache shows zero reads across identical requests. Name two causes.
+3. A tool and retrieval both bring outside facts in. When do you reach for which?
+4. Your agent loop never terminates. What did you forget?
+5. Why does the API return a list of blocks instead of a string, and why will TypeScript not let you ignore that?
+6. Streaming does not make the answer arrive sooner. So what is it for?
+7. Your app answers a farming question correctly and also answers a legal one. Where do you fix that, and why not in the big prompt?
+8. What is the difference between the context window and memory?
+
+### What you can show someone
+
+By the end of week four you have four artefacts, not a certificate: a working agent, an eval set with a recorded baseline, a cost-per-answer figure you measured, and the prompt-to-production pipeline that produced them. That is a portfolio piece, and it is the same conversation as a technical interview.
+
+### What this does not make you
+
+Worth saying plainly. This is the **application layer**. It does not cover training or fine-tuning models, the mathematics underneath them, or running inference infrastructure at scale. It will not make you a researcher. It will make you someone who can build and defend an LLM product, which is what most jobs with "AI engineer" in the title actually ask for.
+
 ## The path
 
 | # | Exercise | You learn | Dictionary words |

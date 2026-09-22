@@ -303,3 +303,22 @@ footer p { margin-bottom: 10px; font-size: 0.95rem; }
   .week { padding: 18px 16px; }
   section { padding-block: 34px; }
 }
+
+/* ── outcomes self test ─────────────────────────────── */
+ol.selftest { margin: 18px 0 0; padding: 0; list-style: none; counter-reset: q; display: grid; gap: 2px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+ol.selftest li { counter-increment: q; background: var(--surface); padding: 13px 18px 13px 50px; position: relative; font-size: .96rem; }
+ol.selftest li::before {
+  content: counter(q); position: absolute; left: 18px; top: 13px;
+  font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .78rem; font-weight: 600; color: var(--leaf);
+}
+#outcomes .three h3 { color: var(--leaf); margin-bottom: 6px; }
+
+/* ── outcomes: build / judge / ship ─────────────────── */
+#outcomes .three {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 24px;
+}
+#outcomes .three > div {
+  padding: 17px 19px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; box-shadow: var(--shadow); display: grid; gap: 6px; align-content: start;
+}
+#outcomes .three p { font-size: .94rem; color: var(--muted); }
