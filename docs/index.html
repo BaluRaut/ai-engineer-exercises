@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Engineer Exercises</title>
+<meta name="description" content="Thirteen hands-on exercises for learning to build with the Claude API in TypeScript, with a four-week study plan.">
+<meta property="og:title" content="AI Engineer Exercises">
+<meta property="og:description" content="Thirteen hands-on exercises for learning to build with the Claude API in TypeScript, with a four-week study plan.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Nunito:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="eyebrow">Learn by building</span>
+      <button type="button" id="theme" class="theme" aria-label="Switch colour theme">◑</button>
+    </div>
+    <h1>AI Engineer Exercises</h1>
+    <p class="lead">Thirteen small programs you finish yourself, from your first API call to an agent with memory. Every example comes from one place: kharif farming in Maharashtra. Written in TypeScript against the Claude API.</p>
+    <nav class="herolinks">
+      <a class="btn primary" href="#run">How to run it</a>
+      <a class="btn" href="#plan">Study plan</a>
+      <a class="btn" href="https://github.com/BaluRaut/ai-engineer-exercises">Source on GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ───────────────────────── RUN ───────────────────────── -->
+<section id="run">
+  <h2>How to run it</h2>
+  <p>You need two things: <strong>Node 20 or newer</strong>, and a <strong>Claude API key</strong> from <a href="https://console.anthropic.com/">console.anthropic.com</a>. Nothing else is installed globally.</p>
+
+  <ol class="steps">
+    <li>
+      <h3>Get the code</h3>
+      <pre><code>git clone https://github.com/BaluRaut/ai-engineer-exercises.git
+cd ai-engineer-exercises
+npm install</code></pre>
+      <p class="note">Check your Node version first with <code>node --version</code>. If it starts with 18 or lower, update it.</p>
+    </li>
+    <li>
+      <h3>Give it your key</h3>
+      <pre><code>export ANTHROPIC_API_KEY=sk-ant-your-key-here</code></pre>
+      <p class="note">On Windows PowerShell use <code>$env:ANTHROPIC_API_KEY = "sk-ant-your-key-here"</code>. This lasts until you close the terminal. To keep it, copy <code>.env.example</code> to <code>.env</code> and put the key there, or add the export line to your shell profile. Never commit the key.</p>
+    </li>
+    <li>
+      <h3>See what is there</h3>
+      <pre><code>npm run list</code></pre>
+      <p class="note">Prints all thirteen exercise folders.</p>
+    </li>
+    <li>
+      <h3>Run the first one</h3>
+      <pre><code>npm run ex -- 01</code></pre>
+      <p class="note">The two dashes matter. They tell npm that <code>01</code> is for the script, not for npm itself.</p>
+    </li>
+  </ol>
+
+  <h3 class="sub">The four commands you will use</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><code>npm run list</code></td><td>Lists every exercise.</td></tr>
+      <tr><td><code>npm run ex -- 07</code></td><td>Runs your version of exercise 07, with its checks.</td></tr>
+      <tr><td><code>npm run ex -- 07 --solution</code></td><td>Runs the finished version, so you can compare.</td></tr>
+      <tr><td><code>npm run typecheck</code></td><td>Checks every file compiles. Makes no API calls and costs nothing.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sub">What you will see</h3>
+  <pre class="output"><code>▶ 01-first-call/exercise.ts   model: claude-opus-5
+
+01 · First call
+───────────────
+Kharif is the monsoon cropping season in Maharashtra...
+tokens: in 24, out 118
+  ✔ answer is not empty
+  ✔ stop reason is end_turn
+
+2 passed, 0 failed — exercise complete</code></pre>
+  <p>A <span class="tick">✔</span> means that part works. A <span class="cross">✘</span> prints a hint telling you what is missing. Keep going until every line is a tick.</p>
+
+  <div class="callout">
+    <h3>What each exercise folder holds</h3>
+    <ul>
+      <li><strong>README.md</strong> — what you are building, the steps, and what finished looks like. Read this first, all of it.</li>
+      <li><strong>exercise.ts</strong> — the scaffold. Find the <code>TODO</code> comments and fill them in. The checks at the bottom grade you.</li>
+      <li><strong>solution.ts</strong> — one working answer. Open it after you have tried, not before.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ───────────────────────── EXERCISES ───────────────────────── -->
+<section id="exercises">
+  <h2>The thirteen</h2>
+  <p>Do them in order. Each one assumes the ones before it.</p>
+
+  <div class="phase">
+    <span class="phasetag">Part one</span>
+    <h3>Talk to the model</h3>
+  </div>
+  <ol class="cards" start="1">
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/01-first-call"><h4>First call</h4><p>Send a message, read the text blocks that come back, watch the token count.</p><span class="words">API · model · token · inference</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/02-system-prompt"><h4>System prompt</h4><p>Give the model a standing job, and watch the same question get a different answer.</p><span class="words">system prompt · prompt</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/03-conversation"><h4>Conversation</h4><p>The API remembers nothing. A chat is a list you resend every single turn.</p><span class="words">context window · memory</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/04-structured-output"><h4>Structured output</h4><p>Get typed fields your code can use instead of prose you have to parse.</p><span class="words">structured output</span></a></li>
+  </ol>
+
+  <div class="phase">
+    <span class="phasetag">Part two</span>
+    <h3>Give it hands</h3>
+  </div>
+  <ol class="cards" start="5">
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/05-streaming"><h4>Streaming</h4><p>Show words as they are generated, and measure the wait you just removed.</p><span class="words">streaming · latency</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/06-tools"><h4>Tools</h4><p>Let the model call a function you wrote, so prices are real instead of invented.</p><span class="words">tool · hallucination</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/07-agent-loop"><h4>Agent loop</h4><p>Write think, act, look, repeat by hand, so you know what the shortcuts hide.</p><span class="words">agent · agentic AI</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/08-rag"><h4>RAG</h4><p>Find the right pieces of your own notes first, then answer with citations.</p><span class="words">RAG · embedding · vector database</span></a></li>
+  </ol>
+
+  <div class="phase">
+    <span class="phasetag">Part three</span>
+    <h3>Make it hold up</h3>
+  </div>
+  <ol class="cards" start="9">
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/09-prompt-caching"><h4>Prompt caching</h4><p>Stop paying full price for the same long instructions on every request.</p><span class="words">prompt caching</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/10-guardrails"><h4>Guardrails</h4><p>A scope check before answering, a scoped prompt, and handling a refusal.</p><span class="words">guardrails · alignment</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/11-evals"><h4>Evals</h4><p>Score a fixed question set so you know whether a change helped or hurt.</p><span class="words">evals · bias</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/12-multi-agent"><h4>Multi-agent</h4><p>Split one job across three workers running at once, then merge their reports.</p><span class="words">multi-agent</span></a></li>
+    <li><a href="https://github.com/BaluRaut/ai-engineer-exercises/tree/main/exercises/13-memory"><h4>Memory</h4><p>Save facts after one conversation and load them into the next.</p><span class="words">memory</span></a></li>
+  </ol>
+</section>
+
+<!-- ───────────────────────── PLAN ───────────────────────── -->
+<section id="plan">
+  <h2>Study plan</h2>
+  <p>Four weeks at about an hour a day. Faster is fine: two exercises a day finishes in a week. Slower is also fine: one a week finishes in three months and you will remember more. What matters is that you attempt before you read the solution, every single time.</p>
+
+  <div class="week">
+    <div class="weekhead"><span class="weeknum">Week 1</span><h3>Talk to the model</h3></div>
+    <p class="goal"><strong>By Sunday you can:</strong> send a request, set the model's job, hold a conversation, and get an answer as typed fields.</p>
+    <ol class="days">
+      <li><strong>Exercise 01.</strong> Then break it on purpose: set <code>max_tokens</code> to 20 and watch <code>stop_reason</code> turn into <code>max_tokens</code>.</li>
+      <li><strong>Exercise 02.</strong> Then write a system prompt for an app <em>you</em> want to build, and run the same question through both.</li>
+      <li><strong>Exercise 03.</strong> Then print the token count on every turn and watch it climb. That climb is your bill.</li>
+      <li><strong>Exercise 04.</strong> Then add a field the notes cannot support and see what the model puts in it.</li>
+      <li><strong>Catch up or rest.</strong> Re-run anything that felt shaky, without looking at the solution.</li>
+    </ol>
+    <p class="check"><strong>Checkpoint.</strong> From an empty file, write a script that asks one question under a system prompt and prints only the text. No copying. If you cannot, redo day two.</p>
+  </div>
+
+  <div class="week">
+    <div class="weekhead"><span class="weeknum">Week 2</span><h3>Give it hands</h3></div>
+    <p class="goal"><strong>By Sunday you can:</strong> stream an answer, let the model call your functions, run an agent loop, and ground answers in your own documents.</p>
+    <ol class="days">
+      <li><strong>Exercise 05.</strong> Compare the time to first word against the total time. That gap is why streaming exists.</li>
+      <li><strong>Exercise 06.</strong> Then add a second tool, a fake weather lookup, and ask a question that needs both.</li>
+      <li><strong>Exercise 07.</strong> The hardest one so far. Give it two sessions if you need to. Print every tool call as it happens.</li>
+      <li><strong>Exercise 07 again,</strong> from scratch, without the solution open. The loop is the centre of everything that follows.</li>
+      <li><strong>Exercise 08.</strong> Then ask something the notes do not cover and check that it says so instead of inventing.</li>
+    </ol>
+    <p class="check"><strong>Checkpoint.</strong> Explain out loud, to a person, the difference between a tool and retrieval. Both bring outside facts in. A tool is called by the model when it decides it needs one. Retrieval is fetched by your code before the model ever sees the question.</p>
+  </div>
+
+  <div class="week">
+    <div class="weekhead"><span class="weeknum">Week 3</span><h3>Make it hold up</h3></div>
+    <p class="goal"><strong>By Sunday you can:</strong> cut your bill, keep the app on task, measure whether a change helped, split work, and remember between sessions.</p>
+    <ol class="days">
+      <li><strong>Exercise 09.</strong> Watch the cache write on call one and the cache read on call two. Then change one character in the system prompt and watch the read go to zero.</li>
+      <li><strong>Exercise 10.</strong> Then try to talk the advisor off topic. Where it slips, tighten the classifier, not the big prompt.</li>
+      <li><strong>Exercise 11.</strong> Add five of your own questions to <code>data/evals.json</code>, including two you expect to fail.</li>
+      <li><strong>Exercise 12.</strong> Then time it against doing the three fields one after another.</li>
+      <li><strong>Exercise 13.</strong> Then decide what your app should never store about a person, and write that rule into the extraction prompt.</li>
+    </ol>
+    <p class="check"><strong>Checkpoint.</strong> Change the system prompt in exercise 11, run the evals again, and show the score moved. Making a change and proving it helped is the job, in one move.</p>
+  </div>
+
+  <div class="week build">
+    <div class="weekhead"><span class="weeknum">Week 4</span><h3>Build your own</h3></div>
+    <p class="goal">No new exercises. Take an idea of your own and assemble it from the pieces you now know.</p>
+    <ol class="days">
+      <li><strong>Write the system prompt</strong> and the one hard limit. <span class="from">from 02</span></li>
+      <li><strong>Define the output shape</strong> your app actually needs as a schema. <span class="from">from 04</span></li>
+      <li><strong>Add one real tool</strong> that reads something true, not invented. <span class="from">from 06</span></li>
+      <li><strong>Put your own documents behind it</strong> and make answers cite them. <span class="from">from 08</span></li>
+      <li><strong>Cache the stable prefix, add a scope check, and write ten eval questions.</strong> <span class="from">from 09, 10, 11</span></li>
+    </ol>
+    <p class="check"><strong>Finished when</strong> your evals pass, the cost per answer is one you would pay, and you can hand it to someone who was not there when you built it.</p>
+  </div>
+</section>
+
+<!-- ───────────────────────── HOW TO STUDY ───────────────────────── -->
+<section id="how">
+  <h2>How to work through one exercise</h2>
+  <p>The order matters more than the speed. Every step you skip here shows up later as a gap.</p>
+  <ol class="rhythm">
+    <li><span class="t">5 min</span><div><h4>Read the whole README</h4><p>Including the part at the end about what to notice. It tells you why the exercise exists, not just what to type.</p></div></li>
+    <li><span class="t">25 min</span><div><h4>Attempt the TODOs with the solution closed</h4><p>Being stuck is the part where learning happens. Sitting in it for ten minutes is normal and is not a sign you are bad at this.</p></div></li>
+    <li><span class="t">2 min</span><div><h4>Run it and read the failures</h4><p>Each <span class="cross">✘</span> carries a hint. Fix one at a time and run again.</p></div></li>
+    <li><span class="t">10 min</span><div><h4>Only now, open the solution</h4><p>Do not just check that it matches. Find the lines that differ from yours and work out why the author chose that.</p></div></li>
+    <li><span class="t">3 min</span><div><h4>Write one sentence about what surprised you</h4><p>Keep these in one file. After thirteen exercises that file is worth more than the code.</p></div></li>
+  </ol>
+  <div class="callout">
+    <h3>You have actually learned it when</h3>
+    <p>You can explain the idea to someone who has never written code, using an everyday comparison. If you cannot explain a context window as a page, a notepad, or a countertop, you know the word and not the thing. The <a href="https://claude.ai/artifact/JfQwvcTjXvcqgrfTvQQSmv">AI Dictionary</a> gives every term three such comparisons, in English and Marathi.</p>
+  </div>
+</section>
+
+<!-- ───────────────────────── TROUBLE ───────────────────────── -->
+<section id="trouble">
+  <h2>When something breaks</h2>
+  <dl class="faq">
+    <dt>It says the API key is missing or invalid</dt>
+    <dd>Run <code>echo $ANTHROPIC_API_KEY</code>. Empty means the export did not survive, usually a new terminal tab. Export it again, or put it in <code>.env</code>.</dd>
+
+    <dt>Error 429, rate limited</dt>
+    <dd>You sent too much too fast. Wait a minute. In exercises 11 and 12, lower the concurrency number passed to <code>mapLimit</code> from 3 to 1.</dd>
+
+    <dt>Exercise 09 shows a cache read of zero</dt>
+    <dd>Either the prefix is shorter than the model's minimum cacheable size, so add more notes, or something inside it changed between the two calls. A timestamp or a random value in the system prompt will do it.</dd>
+
+    <dt>TypeScript is complaining before I even run</dt>
+    <dd>Good. Run <code>npm run typecheck</code> to see every problem at once. It calls no API and costs nothing. Most complaints are the compiler stopping you from reading <code>.text</code> off a block that might not be text.</dd>
+
+    <dt>I am worried about the cost</dt>
+    <dd>Each exercise is a handful of small calls. To spend less while learning, run on a cheaper model: <code>CLAUDE_MODEL=claude-haiku-4-5 npm run ex -- 07</code>. Set it once per terminal with <code>export CLAUDE_MODEL=claude-haiku-4-5</code>. Watch the token line printed after every call; noticing it is a habit worth building.</dd>
+
+    <dt>My answer differs from the solution but the checks pass</dt>
+    <dd>Then you are fine. The checks test behaviour, not wording. Models do not give identical answers twice, which is itself worth sitting with.</dd>
+  </dl>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Companion material,</strong> both in English and Marathi:
+      <a href="https://claude.ai/artifact/JfQwvcTjXvcqgrfTvQQSmv">AI Dictionary for Beginners</a> ·
+      <a href="https://claude.ai/artifact/4d2QHxQyBG3QGnMwN4pP2N">Agents for Beginners</a>
+    </p>
+    <p class="fine">Code MIT licensed. The crop notes in <code>data/notes</code> are teaching material built from typical public extension advice. Confirm anything you would act on with your local Krishi Vigyan Kendra.</p>
+    <p class="fine"><a href="https://github.com/BaluRaut/ai-engineer-exercises">github.com/BaluRaut/ai-engineer-exercises</a></p>
+  </div>
+</footer>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>

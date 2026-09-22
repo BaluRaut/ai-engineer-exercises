@@ -1,5 +1,7 @@
 # AI Engineer Exercises
 
+**📘 [Read the guide and study plan →](https://baluraut.github.io/ai-engineer-exercises/)**
+
 Thirteen hands-on exercises for learning to build with the Claude API, in TypeScript. Every exercise is a small program you finish yourself, with checks that tell you when it works. The examples come from one domain, kharif farming in Maharashtra, so what you learn in one exercise carries into the next.
 
 Companion pages, in English and Marathi:
@@ -27,6 +29,8 @@ Companion pages, in English and Marathi:
 Do them in order. Each one assumes the ones before it.
 
 ## Setup
+
+The [project site](https://baluraut.github.io/ai-engineer-exercises/) has these steps with more explanation, plus a four-week study plan and a troubleshooting list.
 
 You need Node 20 or newer and a Claude API key.
 
